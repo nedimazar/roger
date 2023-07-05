@@ -6,6 +6,7 @@ import sys
 
 from .utils import SETUP, FEWSHOT, METRICS
 from .colors import Colors
+from .key_manager import get_api_key
 
 USERNAME = "test"
 
@@ -17,7 +18,7 @@ class Roger:
         self.script_dir = Path(__file__).parent.absolute()
 
         self.validate_instance_directory()
-        openai.api_key = os.getenv("OPENAI_API_KEY")
+        openai.api_key = get_api_key()
         self.buffer = self.load_buffer()
 
         self.setup = SETUP
