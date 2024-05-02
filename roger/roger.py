@@ -118,6 +118,9 @@ def log_error(error):
 
 
 def main():
+    # Create a roger instance
+    roger = Roger(15, USERNAME)
+
     # Check if there are command line arguments
     if "--wipe-chat-history-and-backup" in sys.argv:
         wipe_memory(USERNAME)
@@ -127,8 +130,6 @@ def main():
         user_input = " ".join(sys.argv[1:])
     else:
         user_input = input(">>> ")
-
-    roger = Roger(15, USERNAME)
 
     user_message = {"role": "user", "content": user_input}
 
